@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Animes.css";
+
 import AnimeItem from "./AnimeItem";
 
 const Animes = ({ animeList }) => {
@@ -12,7 +14,7 @@ const Animes = ({ animeList }) => {
     />
   ));
 
-  return <div>{animeMapped}</div>;
+  return <div className="animes-container">{animeMapped}</div>;
 };
 
 export default Animes;

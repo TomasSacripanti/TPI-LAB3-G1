@@ -5,7 +5,9 @@ const AnimeItem = ({ title, chaptersCount, comment }) => {
   return (
     <AnimeCard>
       <h2>{title}</h2>
-      <h3>Cantidad de capitulos: {chaptersCount}</h3>
+      <h6>Cantidad de capitulos: {chaptersCount}</h6>
+      <br></br>
+      <br></br>
       <p>Comentario: {comment}</p>
     </AnimeCard>
   );
