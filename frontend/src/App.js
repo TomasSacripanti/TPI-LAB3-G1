@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Animes from "./components/Animes";
 import Series from "./components/Series";
+import Movies from "./components/Movies";
 
 const DUMMY_ANIMES = [
   {
@@ -78,6 +79,8 @@ function App() {
         <Animes animeList={DUMMY_ANIMES} />
         <h3>Lista de series </h3>
         <Series seriesList={DUMMY_SERIES} />
+        <h3>Lista de películas</h3>
+        <Movies moviesList={DUMMY_MOVIES} />
       </div>
     </div>
   );
