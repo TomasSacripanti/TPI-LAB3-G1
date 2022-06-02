@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./Animes.css";
+import "./Series.css";
 
 import AnimeSerieItem from "./AnimeSerieItem";
 
-const Animes = ({ animeList }) => {
-  const animeMapped = animeList.map((anime) => (
+const Series = ({ seriesList }) => {
+  const seriesMapped = seriesList.map((anime) => (
     <AnimeSerieItem
       key={anime.id}
       title={anime.title}
@@ -15,14 +15,14 @@ const Animes = ({ animeList }) => {
   ));
 
   return (
-    <div className="animes-container">
-      {animeMapped.length === 0 ? (
-        <p>No hay animes para mostrar</p>
+    <div className="series-container">
+      {seriesMapped.length === 0 ? (
+        <p>No hay series para mostrar</p>
       ) : (
-        animeMapped
+        seriesMapped
       )}
     </div>
   );
 };
 
-export default Animes;
+export default Series;
