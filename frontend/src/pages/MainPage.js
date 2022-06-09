@@ -2,6 +2,7 @@ import React from 'react'
 
 import Navbar from "../components/Navbar";
 import Animes from "../components/Animes";
+import Manga from "../components/Manga";
 import Series from "../components/Series";
 import Movies from "../components/Movies";
 
@@ -71,6 +72,27 @@ const DUMMY_MOVIES = [
   },
 ];
 
+  const DUMMY_MANGAS = [
+    {
+      id: 1,
+      title: "Berserk",
+      chaptersCount: 364,
+      comment: "Obra maestra, de los mejores mangas que existen.",
+    },
+    {
+      id: 2,
+      title: "Magi",
+      chaptersCount: 369,
+      comment: "Shonen de aventura, muy creativo pero con un final controversial.",
+    },
+    {
+      id: 3,
+      title: "Dragon Ball",
+      chaptersCount: 520,
+      comment: "Clasico de clasicos, goku le gana.",
+    },
+  ];
+
 const MainPage = () => {
   return (
     <div>
@@ -78,6 +100,8 @@ const MainPage = () => {
       <div>
         <h3>Lista de animes </h3>
         <Animes animeList={DUMMY_ANIMES} />
+        <h3>Lista de mangas </h3>
+        <Manga mangaList={DUMMY_MANGAS} />
         <h3>Lista de series </h3>
         <Series seriesList={DUMMY_SERIES} />
         <h3>Lista de películas</h3>
