@@ -7,13 +7,10 @@ import MainPage from "./pages/MainPage";
 
 function App() {
   return (
-    
     <Routes>
       <Route path='/' element={<Navigate replace to='/main'/>}></Route>
       <Route path='/main' element={<MainPage />}></Route>
     </Routes>
-    
-    
   );
 }
 
