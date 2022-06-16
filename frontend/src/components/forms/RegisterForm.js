@@ -1,60 +1,75 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    let regularExpression  = /^[a-zA-Z]\w{3,14}$/;
-
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordIsValid, setPasswordIsValid] = useState(true);
-
-    const userChangeHandler = (e) => {
+  const inputHandler = (e) => {
+    switch (e.target.id) {
+      case "userName":
         setUser(e.target.value);
-    }
-    
-    const passwordChangeHandler = (e) => {
+        break;
+      case "email":
+        setEmail(e.target.value);
+        break;
+      case "password":
         setPassword(e.target.value);
+        break;
+      default:
+        break;
     }
-    const passwordValidate = (e) =>{
-        setPasswordIsValid(regularExpression.test(e.target.value));
-        console.log(regularExpression.test(e.target.value));
-        console.log(e.target.value);
-    }
+  };
 
+  const validateForm = () => {
+    console.log("Validating");
+  }
 
   return (
-    <div>        
-        <form>
-            <h3>Registrarse</h3>
-            
-            <p>Usuario</p>
-            
-            <input
+    <div class="wrapper">
+      <div class="text-center mt-4 name">Registrarse</div>
+      <form class="p-3 mt-3">
+        <div class="form-field d-flex align-items-center">
+          <span class="far fa-user"></span>
+          <input
+            type="text"
+            name="userName"
+            id="userName"
+            placeholder="Usuario"
             value={user}
-            type='text'
-            placeholder='Ingrese su usuario'
-            onChange={userChangeHandler}/>
-            
-            <p>Contraseña</p>
-            
-            <input
+            onChange={inputHandler}
+          />
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="far fa-email"></span>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value={email}
+            onChange={inputHandler}
+          />
+        </div>
+        <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
+          <input
+            type="password"
+            name="password"
+            id="pwd"
+            placeholder="Contraseña"
             value={password}
-            type='password'
-            placeholder='Ingrese su contraseña'
-            onChange={passwordChangeHandler}
-            onBlur={passwordValidate}
-            />
-            {passwordIsValid ? '' : <p>La contraseña debe contener al menos una letra minuscula, una mayuscula, un numero,
-                 un caracter especial y debe ser minimo de 8 caracteres</p> }
-            
-            <br></br>
-
-            <button>Registrarse</button>
-            <Link to='/login'><button>Ya tengo una cuenta</button></Link>
-        </form>
+            onChange={inputHandler}
+          />
+        </div>
+        <button onSubmit={validateForm} class="btn mt-3">Ingresar</button>
+      </form>
+      <div class="text-center fs-6">
+        <Link to="/login">Ya tengo cuenta</Link>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default RegisterForm;
