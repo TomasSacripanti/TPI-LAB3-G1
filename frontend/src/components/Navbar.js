@@ -1,5 +1,6 @@
 import React from "react";
 import SearchForm from "./forms/SearchForm";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ isLogged }) => {
   return (
@@ -12,14 +13,14 @@ const Navbar = ({ isLogged }) => {
         <div class="" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="/login">
                 Ingresar
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+              <Link class="nav-link active" aria-current="page" to="/register">
                 Registrarse
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
