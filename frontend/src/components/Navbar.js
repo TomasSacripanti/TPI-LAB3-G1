@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ isLogged }) => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-brand" href="/">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <button className="navbar-brand" href="/">
           Logito
         </button>
         {isLogged ? <SearchForm /> : ""}
-        <div class="" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <Link class="nav-link" to="/login">
+        <div className="" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">
                 Ingresar
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link active" aria-current="page" to="/register">
+            <li className="nav-item">
+              <Link className="nav-link active" aria-current="page" to="/register">
                 Registrarse
               </Link>
             </li>
