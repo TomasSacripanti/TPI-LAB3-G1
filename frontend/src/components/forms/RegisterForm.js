@@ -28,7 +28,7 @@ const RegisterForm = () => {
 
   const emailValidation = () => {
     let emailRegExp =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegExp.test(email);
   };
 
@@ -41,7 +41,7 @@ const RegisterForm = () => {
     e.preventDefault();
     if (userValidation() && emailValidation() && passwordValidation()) {
       spinnerCall();
-      // postUser();
+      postUser();
     } else {
       const validationMsg = document.getElementById("validation-message");
       validationMsg.style.display = "flex";
