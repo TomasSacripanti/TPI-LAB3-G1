@@ -1,10 +1,11 @@
 import React from "react";
 import SearchForm from "./forms/SearchForm";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = ({ isLogged }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <button className="navbar-brand" href="/">
           Logito

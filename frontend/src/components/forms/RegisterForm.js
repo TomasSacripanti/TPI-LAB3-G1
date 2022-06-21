@@ -37,7 +37,7 @@ const RegisterForm = () => {
     return passwordRegExp.test(password);
   };
 
-  const validateForm = (e) => {
+  const registerValidation = (e) => {
     e.preventDefault();
     if (userValidation() && emailValidation() && passwordValidation()) {
       spinnerCall();
@@ -109,7 +109,7 @@ const RegisterForm = () => {
           <div className="bounce2"></div>
           <div className="bounce3"></div>
         </div>
-        <button onClick={validateForm} className="btn mt-3" id="signup-button">
+        <button onClick={registerValidation} className="btn mt-3" id="signup-button">
           Registrarme
         </button>
       </form>
