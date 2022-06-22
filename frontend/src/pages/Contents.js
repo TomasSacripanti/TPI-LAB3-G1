@@ -2,7 +2,6 @@
 
 import CategorySection from "../components/CategorySection";
 
-
 const DUMMY_ANIMES = [
   {
     id: 1,
@@ -91,20 +90,20 @@ const DUMMY_MANGAS = [
   },
 ];
 
-const Reviews = () => {
+const Contents = () => {
   // const [reviews, setReviews] = useState([]);
   return (
     <div>
       <h3>Lista de animes </h3>
-      <CategorySection list={DUMMY_ANIMES} category="animes"/>
+      <CategorySection list={DUMMY_ANIMES} category="animes" />
       <h3>Lista de mangas </h3>
-      <CategorySection list={DUMMY_MANGAS} category="mangas"/>
+      <CategorySection list={DUMMY_MANGAS} category="mangas" />
       <h3>Lista de series </h3>
-      <CategorySection list={DUMMY_SERIES} category="series"/>
+      <CategorySection list={DUMMY_SERIES} category="series" />
       <h3>Lista de películas</h3>
-      <CategorySection list={DUMMY_MOVIES} category="peliculas"/>
+      <CategorySection list={DUMMY_MOVIES} category="peliculas" />
     </div>
   );
 };
 
-export default Reviews;
+export default Contents;
