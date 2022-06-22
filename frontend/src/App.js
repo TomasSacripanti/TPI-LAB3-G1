@@ -16,7 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigate replace to="/login" />}></Route>
           <Route path="/contents" element={<Contents />}></Route>
-          <Route path="/add" element={<AddContent />}></Route>
+          <Route path="/contents/add" element={<AddContent />}></Route>
           <Route
             path="/login"
             element={<Login setIsLogged={setIsLogged} />}
