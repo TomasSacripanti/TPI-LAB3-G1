@@ -1,6 +1,5 @@
-import React from 'react'
+import React from "react";
 
-import Navbar from "../components/Navbar";
 import Animes from "../components/Animes";
 import Manga from "../components/Manga";
 import Series from "../components/Series";
@@ -52,63 +51,61 @@ const DUMMY_MOVIES = [
   {
     id: 1,
     title: "El Show de Truman",
-    director:"Peter Weir",
+    director: "Peter Weir",
     duration: 103,
     comment: "Tremendo plot twist",
   },
   {
     id: 2,
     title: "Gangster Americano",
-    director:"Ridley Scott",
+    director: "Ridley Scott",
     duration: 176,
     comment: "Peliculón de chill",
   },
   {
     id: 3,
     title: "El Señor de los Anillos: El Retorno del Rey",
-    director:"Peter Jackson",
+    director: "Peter Jackson",
     duration: 201,
     comment: "La única tercera pelicula mejor que las anteriores",
   },
 ];
 
-  const DUMMY_MANGAS = [
-    {
-      id: 1,
-      title: "Berserk",
-      chaptersCount: 364,
-      comment: "Obra maestra, de los mejores mangas que existen.",
-    },
-    {
-      id: 2,
-      title: "Magi",
-      chaptersCount: 369,
-      comment: "Shonen de aventura, muy creativo pero con un final controversial.",
-    },
-    {
-      id: 3,
-      title: "Dragon Ball",
-      chaptersCount: 520,
-      comment: "Clasico de clasicos, goku le gana.",
-    },
-  ];
+const DUMMY_MANGAS = [
+  {
+    id: 1,
+    title: "Berserk",
+    chaptersCount: 364,
+    comment: "Obra maestra, de los mejores mangas que existen.",
+  },
+  {
+    id: 2,
+    title: "Magi",
+    chaptersCount: 369,
+    comment:
+      "Shonen de aventura, muy creativo pero con un final controversial.",
+  },
+  {
+    id: 3,
+    title: "Dragon Ball",
+    chaptersCount: 520,
+    comment: "Clasico de clasicos, goku le gana.",
+  },
+];
 
-const MainPage = () => {
+const Reviews = () => {
   return (
     <div>
-        <Navbar />
-      <div>
-        <h3>Lista de animes </h3>
-        <Animes animeList={DUMMY_ANIMES} />
-        <h3>Lista de mangas </h3>
-        <Manga mangaList={DUMMY_MANGAS} />
-        <h3>Lista de series </h3>
-        <Series seriesList={DUMMY_SERIES} />
-        <h3>Lista de películas</h3>
-        <Movies moviesList={DUMMY_MOVIES} />
-      </div>
+      <h3>Lista de animes </h3>
+      <Animes animeList={DUMMY_ANIMES} />
+      <h3>Lista de mangas </h3>
+      <Manga mangaList={DUMMY_MANGAS} />
+      <h3>Lista de series </h3>
+      <Series seriesList={DUMMY_SERIES} />
+      <h3>Lista de películas</h3>
+      <Movies moviesList={DUMMY_MOVIES} />
     </div>
-  )
-}
+  );
+};
 
-export default MainPage;
+export default Reviews;
