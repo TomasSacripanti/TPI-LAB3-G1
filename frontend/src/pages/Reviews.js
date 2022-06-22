@@ -1,9 +1,7 @@
-import React from "react";
+// import {useState} from "react";
 
-import Animes from "../components/Animes";
-import Manga from "../components/Manga";
-import Series from "../components/Series";
-import Movies from "../components/Movies";
+import CategorySection from "../components/CategorySection";
+
 
 const DUMMY_ANIMES = [
   {
@@ -94,16 +92,17 @@ const DUMMY_MANGAS = [
 ];
 
 const Reviews = () => {
+  // const [reviews, setReviews] = useState([]);
   return (
     <div>
       <h3>Lista de animes </h3>
-      <Animes animeList={DUMMY_ANIMES} />
+      <CategorySection list={DUMMY_ANIMES} category="animes"/>
       <h3>Lista de mangas </h3>
-      <Manga mangaList={DUMMY_MANGAS} />
+      <CategorySection list={DUMMY_MANGAS} category="mangas"/>
       <h3>Lista de series </h3>
-      <Series seriesList={DUMMY_SERIES} />
+      <CategorySection list={DUMMY_SERIES} category="series"/>
       <h3>Lista de películas</h3>
-      <Movies moviesList={DUMMY_MOVIES} />
+      <CategorySection list={DUMMY_MOVIES} category="peliculas"/>
     </div>
   );
 };

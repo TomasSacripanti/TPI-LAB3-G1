@@ -1,9 +1,8 @@
-import React from "react";
+import "./ui/CategoryItem.css";
 
-import MovieCard from "./ui/MovieCard";
-const MovieItem = ({ title, director, duration, comment }) => {
+const CategoryItemTwo = ({ title, director, duration, comment }) => {
   return (
-    <MovieCard>
+    <div className="item-container">
       <h2>{title}</h2>
       <h3>Dirigida por: {director}</h3>
       <br></br>
@@ -11,8 +10,8 @@ const MovieItem = ({ title, director, duration, comment }) => {
       <br></br>
       <br></br>
       <p>Comentario: {comment}</p>
-    </MovieCard>
+    </div>
   );
 };
 
-export default MovieItem;
+export default CategoryItemTwo;
