@@ -1,4 +1,4 @@
-import "./ui/CategoryItem.css";
+import "./CategoryItem.css";
 
 const CategoryItemOne = ({ title, chaptersCount, comment }) => {
   return (

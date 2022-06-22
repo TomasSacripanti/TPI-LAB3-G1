@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import CategoryItemOne from "./CategoryItemOne";
-import CategoryItemTwo from "./CategoryItemTwo";
+import CategoryItemOne from "./ui/CategoryItemOne.js";
+import CategoryItemTwo from "./ui/CategoryItemTwo.js";
 import "./CategorySection.css";
 
 const CategorySection = ({ list, category }) => {
