@@ -1,4 +1,8 @@
 import React from "react";
+
+import SearchForm from "./forms/SearchForm";
+import ChangeTheme from "./ChangeTheme";
+
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
@@ -9,8 +13,11 @@ const Navbar = ({ isLogged }) => {
         <div className="navbar-brand">App de contenidos</div>
         <div className="" id="navbarNav">
           <ul className="navbar-nav">
-            {isLogged ? <li className="nav-item"><Link className="nav-link" to="/contents/add">Agregar contenido</Link></li> : <li className="nav-item"><Link className="nav-link" to="/login">Ingresar</Link></li>}
-            {isLogged ? <li className="nav-item"><Link className="nav-link" to="/contents">Contenidos</Link></li> : <li className="nav-item"><Link className="nav-link" aria-current="page" to="/register">Registrarse</Link></li>}
+
+            {isLogged ? <li className="nav-item"><Link className="nav-link" to="/add">Agregar Review</Link></li> : <li className="nav-item"><Link className="nav-link" to="/login">Ingresar</Link></li>}
+            {isLogged ? <li className="nav-item"><Link className="nav-link" to="/reviews">Reviews</Link></li> : <li className="nav-item"><Link className="nav-link" aria-current="page" to="/register">Registrarse</Link></li>}
+            <li className="nav-link"><ChangeTheme/></li>
+
           </ul>
         </div>
       </div>
