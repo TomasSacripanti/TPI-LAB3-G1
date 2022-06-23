@@ -12,6 +12,7 @@ const App = () => {
   const [isLogged, setIsLogged] = useState(false);
   return (
     <>
+
       <ThemeContextProvider>
         <Navbar isLogged={isLogged} />
         <div className="container">
@@ -27,6 +28,7 @@ const App = () => {
           </Routes>
         </div>
       </ThemeContextProvider>
+
     </>
   );
 };
