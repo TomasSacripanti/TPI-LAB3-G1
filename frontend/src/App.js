@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import { ThemeContextProvider } from "./context/ThemeContext";
 
 const App = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
   return (
     <>
 

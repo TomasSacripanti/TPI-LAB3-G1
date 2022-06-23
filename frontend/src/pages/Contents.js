@@ -1,5 +1,5 @@
 // import {useState} from "react";
-
+import SearchForm from "../components/forms/SearchForm";
 import CategorySection from "../components/CategorySection";
 
 const DUMMY_ANIMES = [
@@ -111,6 +111,7 @@ const DUMMY_MANGAS = [
 const Contents = () => {
   return (
     <>
+      <SearchForm></SearchForm>
       <h3>Lista de animes </h3>
       <CategorySection list={DUMMY_ANIMES} category="animes" />
       <h3>Lista de mangas </h3>
