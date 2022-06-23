@@ -132,6 +132,26 @@ body {
   animation-delay: -0.16s;
 }
 
+.category-field {
+  border-radius: 20px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+  margin-bottom: 20px;
+}
+
+.category-field > select {
+  width: 100%;
+  border: none;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 15px;
+  outline: none;
+  background-color: #ecf0f3;
+}
+
+#comment-div > input {
+  height: 100px;
+}
+
 @-webkit-keyframes sk-bouncedelay {
   0%,
   80%,

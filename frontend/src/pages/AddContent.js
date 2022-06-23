@@ -1,7 +1,11 @@
-import React from "react";
+import AddContentForm from "../components/forms/AddContentForm";
 
 const AddContent = () => {
-  return <div>AddContent</div>;
+  return (
+    <div className="div-wrapper">
+      <AddContentForm></AddContentForm>
+    </div>
+  );
 };
 
 export default AddContent;
