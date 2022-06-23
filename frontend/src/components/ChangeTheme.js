@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./ChangeTheme.css";
 
 import ThemeContext from "../context/ThemeContext";
@@ -6,6 +6,16 @@ import ThemeContext from "../context/ThemeContext";
 const ChangeTheme = () => {
   const [themeButton, setThemeButton] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    const root = document.getElementById("root");
+    if (theme === "dark") {
+      root.style.backgroundColor = "#384047";
+    } else {
+      root.style.backgroundColor = "#ECF0F3";
+    }
+  }, [theme])
+  
 
   const buttonHandler = () => {
     setThemeButton(!themeButton);

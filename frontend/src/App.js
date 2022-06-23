@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -6,13 +6,13 @@ import Contents from "./pages/Contents";
 import AddContent from "./pages/AddContent";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import { ThemeContextProvider } from "./context/ThemeContext";
+import {ThemeContextProvider} from "./context/ThemeContext";
+
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(true);
   return (
     <>
-
       <ThemeContextProvider>
         <Navbar isLogged={isLogged} />
         <div className="container">
@@ -28,7 +28,6 @@ const App = () => {
           </Routes>
         </div>
       </ThemeContextProvider>
-
     </>
   );
 };
