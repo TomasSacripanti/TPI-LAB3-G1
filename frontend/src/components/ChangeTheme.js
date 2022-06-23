@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
+import "./ChangeTheme.css";
 
 import ThemeContext from "../context/ThemeContext";
 
 const ChangeTheme = () => {
   const [themeButton, setThemeButton] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
-
-  
 
   const buttonHandler = () => {
     setThemeButton(!themeButton);
@@ -23,9 +22,12 @@ const ChangeTheme = () => {
         onClick={buttonHandler}
       />
       <label
+        id="theme-label"
         className="form-check-label"
         htmlFor="flexSwitchCheckDisabled"
-      >{theme}</label>
+      >
+        {theme}
+      </label>
     </div>
   );
 
@@ -39,17 +41,16 @@ const ChangeTheme = () => {
         onClick={buttonHandler}
       />
       <label
+        id="theme-label"
         className="form-check-label"
         htmlFor="flexSwitchCheckChecked"
-      >{theme}</label>
+      >
+        {theme}
+      </label>
     </div>
   );
 
-  return (
-    <div>
-      {themeButton ? botonHabilitado : botonDeshabilitado}
-    </div>
-  );
+  return <div>{themeButton ? botonHabilitado : botonDeshabilitado}</div>;
 };
 
 export default ChangeTheme;

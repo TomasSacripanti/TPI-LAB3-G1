@@ -2,6 +2,7 @@
     width: 2.8rem;
 }
 
-.form-check-label {
-    position: absolute;
+#theme-label {
+    font-size: 0.8rem;
+    margin: 0 0.6rem;
 }
