@@ -4,26 +4,26 @@ import CategoryItemTwo from "./ui/CategoryItemTwo.js";
 import "./CategorySection.css";
 
 const CategorySection = ({ list, category }) => {
-  const [reviewsMapped, setReviewsMapped] = useState([]);
+  const [contentsMapped, setContentsMapped] = useState([]);
   useEffect(() => {
-    let reviewsMapped;
+    let contentsMapped;
     if (
       category === "animes" ||
       category === "series" ||
       category === "mangas"
     ) {
-      reviewsMapped = list.map(review => {
-        return <CategoryItemOne title={review.title} chaptersCount={review.chaptersCount} comment={review.comment} />;
+      contentsMapped = list.map(content => {
+        return <CategoryItemOne title={content.title} chaptersCount={content.chaptersCount} comment={content.comment} key={content.id} />;
       })
     } else {
-      reviewsMapped = list.map(review => {
-        return <CategoryItemTwo title={review.title} director={review.director} duration={review.duration} comment={review.comment} />;
+      contentsMapped = list.map(content => {
+        return <CategoryItemTwo title={content.title} director={content.director} duration={content.duration} comment={content.comment} key={content.id} />;
       })
     }
-    setReviewsMapped(reviewsMapped);
+    setContentsMapped(contentsMapped);
   }, [list, category]);
 
-  return <div className="category-container">{reviewsMapped}</div>;
+  return <div className="category-container">{contentsMapped}</div>;
 };
 
 export default CategorySection;

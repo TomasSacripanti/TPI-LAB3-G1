@@ -1,5 +1,13 @@
+.container > h3 {
+  margin-top: 2rem;
+}
+
 .category-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.card-body {
+  white-space: normal;
 }

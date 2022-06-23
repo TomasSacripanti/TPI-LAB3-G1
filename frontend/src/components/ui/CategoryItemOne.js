@@ -1,14 +1,20 @@
+import {Card} from "react-bootstrap";
 import "./CategoryItem.css";
 
 const CategoryItemOne = ({ title, chaptersCount, comment }) => {
   return (
-    <div className="item-container">
-      <h2>{title}</h2>
-      <h6>Cantidad de capitulos: {chaptersCount}</h6>
-      <br></br>
-      <br></br>
-      <p>Comentario: {comment}</p>
-    </div>
+    <Card className="item-container">
+      <Card.Img variant="top"/>
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>
+          Cantidad de capitulos: {chaptersCount}
+        </Card.Text>
+        <Card.Text>
+          Comentario: {comment}
+        </Card.Text>
+      </Card.Body>
+    </Card>
   );
 };
 
