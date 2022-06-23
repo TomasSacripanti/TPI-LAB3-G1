@@ -24,3 +24,4 @@ const Navbar = ({ isLogged }) => {
 };
 
 export default Navbar;
+;
