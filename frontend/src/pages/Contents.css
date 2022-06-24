@@ -1,0 +1,17 @@
+.category-title-light {
+  color: #212529;
+}
+
+.category-title-dark {
+  color: white;
+}
+
+::-webkit-scrollbar{
+    height: 4px;
+    width: 4px;
+    background: gray;
+}
+::-webkit-scrollbar-thumb:horizontal{
+    background: #000;
+    border-radius: 10px;
+}
