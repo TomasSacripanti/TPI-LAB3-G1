@@ -194,9 +194,6 @@ body {
   color: white;
 }
 
-#comment-div > input {
-  height: 100px;
-}
 
 @-webkit-keyframes sk-bouncedelay {
   0%,
