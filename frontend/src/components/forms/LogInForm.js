@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ThemeContext from "../../context/ThemeContext";
 import "./Forms.css";
 
 const LoginForm = ({ setIsLogged }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const {theme} = useContext(ThemeContext);
+
+  useEffect(() => {
+    const wrapper = document.getElementById("wrapper");
+    if (theme === "dark") {
+      wrapper.classList.remove("wrapper-light")
+      wrapper.classList.add("wrapper-dark");
+    } else {
+      wrapper.classList.remove("wrapper-dark")
+      wrapper.classList.add("wrapper-light");
+    }
+  }, [theme])
+  
 
   const userValidation = () => {
     return user !== "" && user.length >= 4;
@@ -42,7 +56,7 @@ const LoginForm = ({ setIsLogged }) => {
   };
 
   return (
-    <div className="wrapper">
+    <div id="wrapper" className="wrapper">
       <div className="text-center mt-4 name">Iniciar sesión</div>
       <form className="p-3 mt-3">
         <div className="form-field d-flex align-items-center">
