@@ -13,11 +13,11 @@ const CategorySection = ({ list, category }) => {
       category === "mangas"
     ) {
       contentsMapped = list.map(content => {
-        return <CategoryItemOne title={content.title} chaptersCount={content.chaptersCount} comment={content.comment} key={content.id} />;
+        return <CategoryItemOne title={content.title} chaptersCount={content.chaptersCount} comment={content.comment} />;
       })
     } else {
       contentsMapped = list.map(content => {
-        return <CategoryItemTwo title={content.title} director={content.director} duration={content.duration} comment={content.comment} key={content.id} />;
+        return <CategoryItemTwo title={content.title} director={content.director} duration={content.duration} comment={content.comment} />;
       })
     }
     setContentsMapped(contentsMapped);

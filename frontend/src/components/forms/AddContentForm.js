@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useMemo } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
 
@@ -10,14 +10,15 @@ const AddContentForm = () => {
   const {theme} = useContext(ThemeContext);
 
 
-  useEffect(() => {
-    const wrapper = document.getElementById("wrapper");
-    if (theme === "dark") {
-      wrapper.classList.remove("wrapper-light")
-      wrapper.classList.add("wrapper-dark");
+  const styles = useMemo(() => {
+    if (theme ==="dark") {
+      return {
+        classes: "wrapper wrapper-dark",
+      }
     } else {
-      wrapper.classList.remove("wrapper-dark")
-      wrapper.classList.add("wrapper-light");
+      return {
+        classes: "wrapper wrapper-light",
+      }
     }
   }, [theme])
 
@@ -60,7 +61,7 @@ const AddContentForm = () => {
   };
 
   return (
-    <div id="wrapper" className="wrapper">
+    <div id="wrapper" className={styles.classes}>
       <div className="text-center mt-4 name">Agregue un contenido</div>
       <form className="p-3 mt-3">
         <div className="category-field">

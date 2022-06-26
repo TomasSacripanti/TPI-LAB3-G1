@@ -1,39 +1,36 @@
-import {useEffect, useContext} from "react";
+import { useMemo, useContext } from "react";
 import ThemeContext from "../../context/ThemeContext";
-import {Card} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./CategoryItem.css";
 
 const CategoryItemOne = ({ title, chaptersCount, comment }) => {
-  const {theme} = useContext(ThemeContext); 
+  const { theme } = useContext(ThemeContext);
 
-  useEffect(() => {
-    const cards = document.getElementsByClassName("card");
-    for (let i = 0; i < cards.length; i++) {
-      if (theme === "dark") {
-        cards[i].classList.remove("bg-light");
-        cards[i].classList.add("bg-dark");
-        cards[i].classList.remove("card-light");
-        cards[i].classList.add("card-dark");
-      } else {
-        cards[i].classList.remove("bg-dark");
-        cards[i].classList.add("bg-light");
-        cards[i].classList.remove("card-dark");
-        cards[i].classList.add("card-light");
+  const styles = useMemo(() => {
+    if(theme === "dark") {
+      return {
+        classes: "item-container card-dark bg-dark",
+        object: {
+          color: "#FFFFFF",
+        }
+      }
+    } else {
+      return {
+        classes: "item-container card-light bg-light",
+        object: {
+          color: "#212529",
+        }
       }
     }
-  }, [theme])
+  }, [theme]);
 
   return (
-    <Card className="item-container">
-      <Card.Img variant="top"/>
+    <Card className={styles.classes}>
+      <Card.Img variant="top" />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>
-          Cantidad de capitulos: {chaptersCount}
-        </Card.Text>
-        <Card.Text>
-          Comentario: {comment}
-        </Card.Text>
+        <Card.Title style={styles.object} >{title}</Card.Title>
+        <Card.Text style={styles.object} >Cantidad de capitulos: {chaptersCount}</Card.Text>
+        <Card.Text style={styles.object} >Comentario: {comment}</Card.Text>
       </Card.Body>
     </Card>
   );

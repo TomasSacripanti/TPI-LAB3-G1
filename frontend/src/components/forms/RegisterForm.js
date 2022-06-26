@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useMemo } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
 
@@ -8,16 +8,17 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const {theme} = useContext(ThemeContext);
 
-  useEffect(() => {
-    const wrapper = document.getElementById("wrapper");
+  const styles = useMemo(() => {
     if (theme === "dark") {
-      wrapper.classList.remove("wrapper-light")
-      wrapper.classList.add("wrapper-dark");
+      return {
+        classes: "wrapper wrapper-dark"
+      }
     } else {
-      wrapper.classList.remove("wrapper-dark")
-      wrapper.classList.add("wrapper-light");
+      return {
+        classes: "wrapper wrapper-light"
+      }
     }
-  }, [theme])
+  }, [theme]);
 
   const inputHandler = (e) => {
     switch (e.target.id) {
@@ -78,7 +79,7 @@ const RegisterForm = () => {
   const postUser = () => {};
 
   return (
-    <div id="wrapper" className="wrapper">
+    <div id="wrapper" className={styles.classes}>
       <div className="text-center mt-4 name">Registrarse</div>
       <form className="p-3 mt-3">
         <div className="form-field d-flex align-items-center">
