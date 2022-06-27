@@ -20,13 +20,22 @@ const Navbar = ({ isLogged }) => {
       };
     }
   }, [theme]);
-  
+
   return (
     <nav className={styles.classes}>
       <div className="container-fluid">
         <div className="navbar-brand">Trackeador de contenidos</div>
         <div className="" id="navbarNav">
           <ul className="navbar-nav">
+            {isLogged ? (
+              <li className="nav-item">
+                <Link className="nav-link" to="/contents/popular">
+                  Contenidos populares
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
             {isLogged ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/contents/add">
@@ -43,7 +52,7 @@ const Navbar = ({ isLogged }) => {
             {isLogged ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/contents">
-                  Contenidos
+                  Tus contenidos
                 </Link>
               </li>
             ) : (

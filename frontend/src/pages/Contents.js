@@ -19,17 +19,15 @@ const Contents = () => {
     }
   }, [theme]);
 
-  
-
   return (
     <>
-      <h3 className={styles}>Lista de animes </h3>
+      <h3 className={styles}>Tu lista de animes </h3>
       <CategorySection list={DATA.DUMMY_ANIMES} category="animes" />
-      <h3 className={styles}>Lista de mangas </h3>
+      <h3 className={styles}>Tu lista de mangas </h3>
       <CategorySection list={DATA.DUMMY_MANGAS} category="mangas" />
-      <h3 className={styles}>Lista de series </h3>
+      <h3 className={styles}>Tu lista de series </h3>
       <CategorySection list={DATA.DUMMY_SERIES} category="series" />
-      <h3 className={styles}>Lista de películas</h3>
+      <h3 className={styles}>Tu lista de películas</h3>
       <CategorySection list={DATA.DUMMY_MOVIES} category="peliculas" />
     </>
   );
