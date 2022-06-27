@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import CategoryItemOne from "./ui/CategoryItemOne.js";
 import CategoryItemTwo from "./ui/CategoryItemTwo.js";
 import CategoryItemThree from "./ui/CategoryItemThree.js";
+import CategoryItemFour from "./ui/CategoryItemFour.js";
 import "./CategorySection.css";
-
 const CategorySection = ({ list, category, popular }) => {
   const [contentsMapped, setContentsMapped] = useState([]);
   useEffect(() => {
@@ -20,6 +20,34 @@ const CategorySection = ({ list, category, popular }) => {
             />
           );
         });
+      } else {
+        if (category === "animes") {
+          contentsMapped = list.map((content) => {
+            return (
+              <CategoryItemFour
+                key={content.mal_id}
+                title={content.title}
+                imageURL={content.images.jpg.image_url}
+                score={content.score}
+                episodesCount={content.episodes}
+                status={content.status}
+              />
+            );
+          });
+        } else {
+          contentsMapped = list.map((content) => {
+            return (
+              <CategoryItemFour
+                key={content.mal_id}
+                title={content.title}
+                imageURL={content.images.jpg.image_url}
+                score={content.score}
+                episodesCount={content.chapters}
+                status={content.status}
+              />
+            );
+          });
+        }
       }
     } else {
       if (
