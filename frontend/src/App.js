@@ -6,8 +6,7 @@ import Contents from "./pages/Contents";
 import AddContent from "./pages/AddContent";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import {ThemeContextProvider} from "./context/ThemeContext";
-
+import { ThemeContextProvider } from "./context/ThemeContext";
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(true);

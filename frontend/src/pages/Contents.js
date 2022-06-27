@@ -1,23 +1,25 @@
-import { useContext, useMemo} from "react";
+import { useContext, useMemo } from "react";
 import CategorySection from "../components/CategorySection";
 import ThemeContext from "../context/ThemeContext";
 import DATA from "../Data";
 import "./Contents.css";
 
 const Contents = () => {
-  const {theme} = useContext(ThemeContext); 
+  const { theme } = useContext(ThemeContext);
 
   const styles = useMemo(() => {
-    if(theme === "dark") {
+    if (theme === "dark") {
       return {
         classes: "category-title category-title-dark",
-      }
+      };
     } else {
       return {
         classes: "category-title category-title-light",
-      }
+      };
     }
   }, [theme]);
+
+  
 
   return (
     <>

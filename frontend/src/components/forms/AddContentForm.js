@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, useMemo } from "react";
+import { useState, useContext, useMemo } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
 
