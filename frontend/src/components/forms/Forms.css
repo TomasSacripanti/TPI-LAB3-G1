@@ -219,9 +219,38 @@ body {
   }
 }
 
+@media (max-width: 1200px) {
+  .wrapper {
+    width: 60%;
+  }
+}
+
+@media (max-width: 992px) {
+  .div-wrapper {
+    height: calc(100vh - 178px);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 80%;
+  }
+}
+
+@media (max-width: 470px) {
+  .wrapper {
+    width: 100%;
+  }
+  .wrapper > form {
+    font-size: 0.5rem;
+  }
+}
+
 @media (max-width: 380px) {
   .wrapper {
     margin: 30px 20px;
     padding: 40px 15px 15px 15px;
   }
 }
+
+
