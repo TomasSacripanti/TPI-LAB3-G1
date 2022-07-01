@@ -24,6 +24,7 @@ const PopularContent = () => {
       };
     }
   }, [theme]);
+  
 
   useEffect(() => {
     const retrieveData = async () => {
@@ -43,10 +44,6 @@ const PopularContent = () => {
 
   return (
     <>
-      {/* <h3 className={styles}>Animes populares</h3>
-      <CategorySection list={} category="animes" />
-      <h3 className={styles}>Mangas populares</h3>
-      <CategorySection list={} category="mangas" /> */}
       <h3 className={styles.classes}>Series populares</h3>
       <CategorySection list={popularSeries} category="series" popular={true} />
       <h3 className={styles.classes}>Peliculas populares</h3>

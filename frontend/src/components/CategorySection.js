@@ -9,7 +9,7 @@ const CategorySection = ({ list, category, popular }) => {
   useEffect(() => {
     let contentsMapped;
     if (popular) {
-      if (category === "peliculas" || category === "series") {
+      if (category === "peliculas") {
         contentsMapped = list.map((content) => {
           return (
             <CategoryItemThree
@@ -20,34 +20,46 @@ const CategorySection = ({ list, category, popular }) => {
             />
           );
         });
-      } else {
-        if (category === "animes") {
-          contentsMapped = list.map((content) => {
-            return (
-              <CategoryItemFour
-                key={content.mal_id}
-                title={content.title}
-                imageURL={content.images.jpg.image_url}
-                score={content.score}
-                episodesCount={content.episodes}
-                status={content.status}
-              />
-            );
-          });
-        } else {
-          contentsMapped = list.map((content) => {
-            return (
-              <CategoryItemFour
-                key={content.mal_id}
-                title={content.title}
-                imageURL={content.images.jpg.image_url}
-                score={content.score}
-                episodesCount={content.chapters}
-                status={content.status}
-              />
-            );
-          });
-        }
+      }
+      if (category === "series") {
+        contentsMapped = list.map((content) => {
+          return (
+            <CategoryItemThree
+              title={content.name}
+              posterPath={content.poster_path}
+              vote={content.vote_average}
+              date={content.release_date}
+            />
+          );
+        });
+      }
+      if (category === "animes") {
+        contentsMapped = list.map((content) => {
+          return (
+            <CategoryItemFour
+              key={content.mal_id}
+              title={content.title}
+              imageURL={content.images.jpg.image_url}
+              score={content.score}
+              episodesCount={content.episodes}
+              status={content.status}
+            />
+          );
+        });
+      }
+      if (category === "mangas") {
+        contentsMapped = list.map((content) => {
+          return (
+            <CategoryItemFour
+              key={content.mal_id}
+              title={content.title}
+              imageURL={content.images.jpg.image_url}
+              score={content.score}
+              episodesCount={content.chapters}
+              status={content.status}
+            />
+          );
+        });
       }
     } else {
       if (
