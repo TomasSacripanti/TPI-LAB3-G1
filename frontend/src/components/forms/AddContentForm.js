@@ -8,20 +8,19 @@ const AddContentForm = () => {
   const [category, setCategory] = useState("pelicula");
   const [duration, setDuration] = useState(undefined);
   const [comment, setComment] = useState("");
-  const {theme} = useContext(ThemeContext);
-
+  const { theme } = useContext(ThemeContext);
 
   const styles = useMemo(() => {
-    if (theme ==="dark") {
+    if (theme === "dark") {
       return {
         classes: "wrapper wrapper-dark",
-      }
+      };
     } else {
       return {
         classes: "wrapper wrapper-light",
-      }
+      };
     }
-  }, [theme])
+  }, [theme]);
 
   const inputHandler = (e) => {
     switch (e.target.id) {
@@ -73,12 +72,10 @@ const AddContentForm = () => {
             name="category"
             id="category"
           >
-            <option value="pelicula">
-              Pelicula
-            </option>
+            <option value="pelicula">Pelicula</option>
             <option value="serie">Serie</option>
             <option value="anime">Anime</option>
-            <option value="libro">Libro</option>
+            <option value="manga">Manga</option>
           </select>
         </div>
         <div className="form-field d-flex align-items-center">
@@ -118,7 +115,7 @@ const AddContentForm = () => {
           ) : (
             ""
           )}
-          {category === "libro" ? (
+          {category === "manga" ? (
             <input
               type="number"
               name="duration"

@@ -1,11 +1,13 @@
 import { useContext, useMemo } from "react";
 import ThemeContext from "../context/ThemeContext";
+import LoginContext from "../context/LoginContext";
 import { Link } from "react-router-dom";
 import ChangeTheme from "./ChangeTheme";
 import "./Navbar.css";
 
-const Navbar = ({ isLogged }) => {
+const Navbar = () => {
   const { theme } = useContext(ThemeContext);
+  const { logged } = useContext(LoginContext);
 
   const styles = useMemo(() => {
     if (theme === "dark") {
@@ -27,7 +29,7 @@ const Navbar = ({ isLogged }) => {
         <div className="navbar-brand">Trackeador de contenidos</div>
         <div className="" id="navbarNav">
           <ul className="navbar-nav">
-            {isLogged ? (
+            {logged ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/contents/popular">
                   Contenidos populares
@@ -36,7 +38,7 @@ const Navbar = ({ isLogged }) => {
             ) : (
               ""
             )}
-            {isLogged ? (
+            {logged ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/contents/add">
                   Agregar contenido
@@ -49,7 +51,7 @@ const Navbar = ({ isLogged }) => {
                 </Link>
               </li>
             )}
-            {isLogged ? (
+            {logged ? (
               <li className="nav-item">
                 <Link className="nav-link" to="/contents">
                   Tus contenidos
