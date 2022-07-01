@@ -10,7 +10,7 @@ const AddContentForm = () => {
   const [duration, setDuration] = useState(undefined);
   const [comment, setComment] = useState("");
   const { theme } = useContext(ThemeContext);
-  const {data, setData} = useContext(DataContext)
+  const { data, setData } = useContext(DataContext);
 
   const styles = useMemo(() => {
     if (theme === "dark") {
@@ -51,6 +51,7 @@ const AddContentForm = () => {
 
   const validateForm = (e) => {
     e.preventDefault();
+    let contentData = {};
     if (title === "" || comment === "" || duration === 0 || duration === null) {
       const validationMsg = document.getElementById("validation-message");
       validationMsg.style.display = "flex";
@@ -59,13 +60,24 @@ const AddContentForm = () => {
       }, 3000);
     } else {
       callSpinner();
-      const contentData = {
-        id: data.length,
-        title,
-        duration,
-        comment,
-        category,
-      };
+      if (category === "pelicula") {
+        contentData = {
+          id: data.length,
+          title,
+          duration,
+          comment,
+          category,
+        };
+      } else {
+        contentData = {
+          id: data.length,
+          title,
+          chaptersCount: duration,
+          comment,
+          category,
+        };
+      }
+
       const newContentArray = [...data, contentData];
       setData(newContentArray);
       setTitle("");
