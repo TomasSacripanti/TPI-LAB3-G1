@@ -3,6 +3,7 @@ import ThemeContext from "../context/ThemeContext";
 import LoginContext from "../context/LoginContext";
 import { Link } from "react-router-dom";
 import ChangeTheme from "./ChangeTheme";
+import Logout from "./Logout";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -63,6 +64,11 @@ const Navbar = () => {
                   Registrarse
                 </Link>
               </li>
+            )}
+            {logged ? (
+              <Logout/>
+            ) : (
+              ""
             )}
             <li className="nav-link">
               <ChangeTheme />

@@ -21,14 +21,14 @@ const Contents = () => {
 
   return (
     <>
-      <h3 className={styles.classes}>Tu lista de animes </h3>
-      <CategorySection list={DATA.DUMMY_ANIMES} category="animes" />
-      <h3 className={styles.classes}>Tu lista de mangas </h3>
-      <CategorySection list={DATA.DUMMY_MANGAS} category="mangas" />
       <h3 className={styles.classes}>Tu lista de series </h3>
       <CategorySection list={DATA.DUMMY_SERIES} category="series" />
       <h3 className={styles.classes}>Tu lista de películas</h3>
       <CategorySection list={DATA.DUMMY_MOVIES} category="peliculas" />
+      <h3 className={styles.classes}>Tu lista de animes </h3>
+      <CategorySection list={DATA.DUMMY_ANIMES} category="animes" />
+      <h3 className={styles.classes}>Tu lista de mangas </h3>
+      <CategorySection list={DATA.DUMMY_MANGAS} category="mangas" />
     </>
   );
 };
