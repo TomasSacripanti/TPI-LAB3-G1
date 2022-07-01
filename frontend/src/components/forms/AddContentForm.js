@@ -1,5 +1,6 @@
 import { useState, useContext, useMemo } from "react";
 import ThemeContext from "../../context/ThemeContext";
+import DataContext from "../../context/DataContext";
 import { Link } from "react-router-dom";
 import "./Forms.css";
 
@@ -9,6 +10,7 @@ const AddContentForm = () => {
   const [duration, setDuration] = useState(undefined);
   const [comment, setComment] = useState("");
   const { theme } = useContext(ThemeContext);
+  const {data, setData} = useContext(DataContext)
 
   const styles = useMemo(() => {
     if (theme === "dark") {
@@ -57,6 +59,15 @@ const AddContentForm = () => {
       }, 3000);
     } else {
       callSpinner();
+      const contentData = {
+        id: data.length,
+        title,
+        duration,
+        comment,
+        category,
+      };
+      const newContentArray = [...data, contentData];
+      setData(newContentArray);
       setTitle("");
       setCategory("pelicula");
       setDuration("");

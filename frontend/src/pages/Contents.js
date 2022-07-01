@@ -1,11 +1,13 @@
 import { useContext, useMemo } from "react";
 import CategorySection from "../components/CategorySection";
 import ThemeContext from "../context/ThemeContext";
-import DATA from "../Data";
+import DataContext from "../context/DataContext";
 import "./Contents.css";
 
 const Contents = () => {
   const { theme } = useContext(ThemeContext);
+
+  const { data } = useContext(DataContext);
 
   const styles = useMemo(() => {
     if (theme === "dark") {
@@ -22,13 +24,25 @@ const Contents = () => {
   return (
     <>
       <h3 className={styles.classes}>Tu lista de series </h3>
-      <CategorySection list={DATA.DUMMY_SERIES} category="series" />
+      <CategorySection
+        list={data.filter((content) => content.category === "serie")}
+        category="series"
+      />
       <h3 className={styles.classes}>Tu lista de películas</h3>
-      <CategorySection list={DATA.DUMMY_MOVIES} category="peliculas" />
+      <CategorySection
+        list={data.filter((content) => content.category === "pelicula")}
+        category="peliculas"
+      />
       <h3 className={styles.classes}>Tu lista de animes </h3>
-      <CategorySection list={DATA.DUMMY_ANIMES} category="animes" />
+      <CategorySection
+        list={data.filter((content) => content.category === "anime")}
+        category="animes"
+      />
       <h3 className={styles.classes}>Tu lista de mangas </h3>
-      <CategorySection list={DATA.DUMMY_MANGAS} category="mangas" />
+      <CategorySection
+        list={data.filter((content) => content.category === "manga")}
+        category="mangas"
+      />
     </>
   );
 };
