@@ -1,7 +1,7 @@
 import { useState, useContext, useMemo } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import "./Forms.css";
 
 const AddContentForm = () => {
   const [title, setTitle] = useState("");
@@ -56,8 +56,23 @@ const AddContentForm = () => {
         validationMsg.style.display = "none";
       }, 3000);
     } else {
-      //Post a Content
+      callSpinner();
+      setTitle("");
+      setCategory("pelicula");
+      setDuration("");
+      setComment("");
     }
+  };
+
+  const callSpinner = () => {
+    let spinner = document.getElementById("spinner");
+    let addContent = document.getElementById("add-content");
+    spinner.style.display = "block";
+    addContent.style.display = "none";
+    setTimeout(() => {
+      spinner.style.display = "none";
+      addContent.style.display = "inline-block";
+    }, 3000);
   };
 
   return (
@@ -142,7 +157,12 @@ const AddContentForm = () => {
         <div id="validation-message">
           <p>Ingrese datos válidos para continuar</p>
         </div>
-        <button onClick={validateForm} className="btn mt-3">
+        <div id="spinner" className="spinner">
+          <div className="bounce1"></div>
+          <div className="bounce2"></div>
+          <div className="bounce3"></div>
+        </div>
+        <button id="add-content" onClick={validateForm} className="btn mt-3">
           Agregar contenido
         </button>
       </form>
