@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TPI-LAB3-G1/static/css/main.f32435d0.css",
+    "main.js": "/TPI-LAB3-G1/static/js/main.73b3d6dd.js",
+    "index.html": "/TPI-LAB3-G1/index.html",
+    "main.f32435d0.css.map": "/TPI-LAB3-G1/static/css/main.f32435d0.css.map",
+    "main.73b3d6dd.js.map": "/TPI-LAB3-G1/static/js/main.73b3d6dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f32435d0.css",
+    "static/js/main.73b3d6dd.js"
+  ]
+}
