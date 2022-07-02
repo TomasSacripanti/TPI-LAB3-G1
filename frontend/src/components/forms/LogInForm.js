@@ -2,13 +2,16 @@ import { useState, useContext, useMemo } from "react";
 import { Link, Navigate } from "react-router-dom";
 import ThemeContext from "../../context/ThemeContext";
 import LoginContext from "../../context/LoginContext";
+import UsersListContext from "../../context/UsersListContext";
 import "./Forms.css";
+
 
 const LoginForm = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const { theme } = useContext(ThemeContext);
   const { logged, setLogged } = useContext(LoginContext);
+  const { usersList } = useContext(UsersListContext);
 
   const styles = useMemo(() => {
     if (theme === "dark") {
@@ -23,12 +26,12 @@ const LoginForm = () => {
   }, [theme]);
 
   const userValidation = () => {
-    return user !== "" && user.length >= 4;
+    return user !== "" && user.length >= 4 && (user === (usersList.find(u => u.users === user) === undefined ? false : (usersList.find(u => u.users === user).users)));
   };
 
   const passwordValidation = () => {
-    let passwordRegExp = /^[A-Za-z]\w{7,14}$/;
-    return passwordRegExp.test(password);
+    let passwordRegExp = /^[A-Za-z]\w{7,14}$/;   
+    return passwordRegExp.test(password) && (password === (usersList.find(u => u.passwords === password) === undefined ? false : (usersList.find(u => u.passwords === password).passwords)));
   };
 
   const loginValidation = (e) => {
