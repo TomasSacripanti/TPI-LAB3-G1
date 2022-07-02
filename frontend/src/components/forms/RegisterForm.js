@@ -76,7 +76,9 @@ const RegisterForm = () => {
     }, 2000);
   };
 
-  const postUser = () => {};
+  const postUser = () => {
+    
+  };
 
   return (
     <div id="wrapper" className={styles.classes}>

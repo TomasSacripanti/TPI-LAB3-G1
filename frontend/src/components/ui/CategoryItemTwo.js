@@ -29,7 +29,7 @@ const CategoryItemTwo = ({ title, director, duration, comment }) => {
       <Card.Body>
         <Card.Title style={styles.object}>{title}</Card.Title>
         <Card.Text style={styles.object}>Director: {director}</Card.Text>
-        <Card.Text style={styles.object}>Duracion: {duration}</Card.Text>
+        <Card.Text style={styles.object}>Duracion: {duration} min</Card.Text>
         <Card.Text style={styles.object}>Comentario: {comment}</Card.Text>
       </Card.Body>
     </Card>
