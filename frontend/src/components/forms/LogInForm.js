@@ -5,13 +5,12 @@ import LoginContext from "../../context/LoginContext";
 import UsersListContext from "../../context/UsersListContext";
 import "./Forms.css";
 
-
 const LoginForm = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const { theme } = useContext(ThemeContext);
   const { logged, setLogged } = useContext(LoginContext);
-  const { usersList } = useContext(UsersListContext);
+  const { usersList, setActiveUser } = useContext(UsersListContext);
 
   const styles = useMemo(() => {
     if (theme === "dark") {
@@ -26,18 +25,34 @@ const LoginForm = () => {
   }, [theme]);
 
   const userValidation = () => {
-    return user !== "" && user.length >= 4 && (user === (usersList.find(u => u.users === user) === undefined ? false : (usersList.find(u => u.users === user).users)));
+    console.log(usersList)
+    return (
+      user !== "" &&
+      user.length >= 4 &&
+      user ===
+        (usersList.find((u) => u.users === user) === undefined
+          ? false
+          : usersList.find((u) => u.users === user).users)
+    );
   };
 
   const passwordValidation = () => {
-    let passwordRegExp = /^[A-Za-z]\w{7,14}$/;   
-    return passwordRegExp.test(password) && (password === (usersList.find(u => u.passwords === password) === undefined ? false : (usersList.find(u => u.passwords === password).passwords)));
+    let passwordRegExp = /^[A-Za-z]\w{7,14}$/;
+    console.log(usersList)
+    return (
+      passwordRegExp.test(password) &&
+      password ===
+        (usersList.find((u) => u.passwords === password) === undefined
+          ? false
+          : usersList.find((u) => u.passwords === password).passwords)
+    );
   };
 
   const loginValidation = (e) => {
     e.preventDefault();
     if (userValidation() && passwordValidation()) {
       // window.location.href = "/contents";
+      setActiveUser(usersList.find((u) => u.users === user).id)
       setLogged(true);
     } else {
       const validationMsg = document.getElementById("validation-message");
@@ -63,7 +78,7 @@ const LoginForm = () => {
 
   return (
     <>
-      {logged && <Navigate replace to="/contents"/>}
+      {logged && <Navigate replace to="/contents" />}
       <div id="wrapper" className={styles.classes}>
         <div className="text-center mt-4 name">Iniciar sesión</div>
         <form className="p-3 mt-3">

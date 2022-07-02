@@ -3,14 +3,17 @@ import ThemeContext from "../../context/ThemeContext";
 import DataContext from "../../context/DataContext";
 import { Link } from "react-router-dom";
 import "./Forms.css";
+import UsersListContext from "../../context/UsersListContext";
 
 const AddContentForm = () => {
   const [title, setTitle] = useState("");
+  const [director, setDirector] = useState("");
   const [category, setCategory] = useState("pelicula");
   const [duration, setDuration] = useState(undefined);
   const [comment, setComment] = useState("");
   const { theme } = useContext(ThemeContext);
   const { data, setData } = useContext(DataContext);
+  const { activeUser } = useContext(UsersListContext);
 
   const styles = useMemo(() => {
     if (theme === "dark") {
@@ -28,6 +31,9 @@ const AddContentForm = () => {
     switch (e.target.id) {
       case "title":
         setTitle(e.target.value);
+        break;
+      case "director":
+        setDirector(e.target.value);
         break;
       case "duration":
         const number = parseInt(e.target.value);
@@ -63,7 +69,9 @@ const AddContentForm = () => {
       if (category === "pelicula") {
         contentData = {
           id: data.length,
+          userId: activeUser,
           title,
+          director,
           duration,
           comment,
           category,
@@ -71,6 +79,7 @@ const AddContentForm = () => {
       } else {
         contentData = {
           id: data.length,
+          userId: activeUser,
           title,
           chaptersCount: duration,
           comment,
@@ -127,6 +136,21 @@ const AddContentForm = () => {
             onChange={inputHandler}
           />
         </div>
+        {category === "pelicula" ? (
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-title"></span>
+            <input
+              type="text"
+              name="director"
+              id="director"
+              value={director}
+              placeholder="Director"
+              onChange={inputHandler}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="form-field d-flex align-items-center">
           <span className="far fa-duration"></span>
           {category === "pelicula" ? (

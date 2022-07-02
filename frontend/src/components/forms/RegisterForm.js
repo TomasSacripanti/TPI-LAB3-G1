@@ -1,22 +1,25 @@
 import React, { useState, useContext, useMemo } from "react";
 import ThemeContext from "../../context/ThemeContext";
+import UsersListContext from "../../context/UsersListContext";
+
 import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const { usersList, setUsersList } = useContext(UsersListContext);
 
   const styles = useMemo(() => {
     if (theme === "dark") {
       return {
-        classes: "wrapper wrapper-dark"
-      }
+        classes: "wrapper wrapper-dark",
+      };
     } else {
       return {
-        classes: "wrapper wrapper-light"
-      }
+        classes: "wrapper wrapper-light",
+      };
     }
   }, [theme]);
 
@@ -56,6 +59,7 @@ const RegisterForm = () => {
     if (userValidation() && emailValidation() && passwordValidation()) {
       spinnerCall();
       postUser();
+      console.log(usersList);
     } else {
       const validationMsg = document.getElementById("validation-message");
       validationMsg.style.display = "flex";
@@ -77,7 +81,14 @@ const RegisterForm = () => {
   };
 
   const postUser = () => {
-    
+    let newUser = {
+      id: usersList.length + 1,
+      users: user,
+      passwords: password,
+      email: email,
+    };
+    let newUsersList = [...usersList, newUser];
+    setUsersList(newUsersList);
   };
 
   return (
@@ -125,7 +136,11 @@ const RegisterForm = () => {
           <div className="bounce2"></div>
           <div className="bounce3"></div>
         </div>
-        <button onClick={registerValidation} className="btn mt-3" id="signup-button">
+        <button
+          onClick={registerValidation}
+          className="btn mt-3"
+          id="signup-button"
+        >
           Registrarme
         </button>
       </form>

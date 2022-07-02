@@ -23,8 +23,9 @@ const USER=[{
 
 export function UsersListContextProvider({ children }) {
   const [usersList, setUsersList] = useState(USER);
+  const [activeUser, setActiveUser] = useState()
   return (
-    <UserListContext.Provider value={{usersList, setUsersList }}>
+    <UserListContext.Provider value={{usersList, setUsersList, activeUser, setActiveUser }}>
       {children}
     </UserListContext.Provider>
   );
